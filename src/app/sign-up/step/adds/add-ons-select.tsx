@@ -33,7 +33,7 @@ function AddonsSelect() {
                     console.log('some shit')
                   }} className='size-4 pointer-events-none' />
                   <div>
-                    <h2 className='text-lg font-bold'>{add.title}</h2>
+                    <h2 className='md:text-lg font-bold'>{add.title}</h2>
                     <p className='text-gray-500 text-sm'>{add.description}</p>
                   </div>
                 </div>
@@ -51,12 +51,12 @@ function AddonsSelect() {
           )
         })}
       </div>
-      <div className="flex mt-auto justify-between items-center">
+      <div className="flex mt-8 md:mt-auto justify-between items-center">
         <Button variant={'ghost'} asChild>
-          <Link href="/sign-up/step/2">Go Back</Link>
+          <Link href="/sign-up/step/plan">Go Back</Link>
         </Button>
         <Button asChild>
-          <Link href={'/sign-up/step/4'}>Next Step</Link>
+          <Link href={'/sign-up/step/summary'}>Next Step</Link>
         </Button>
       </div>
     </>

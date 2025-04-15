@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <Button asChild>
-        <Link href={'/sign-up/step/1'}>
+        <Link href={'/sign-up/step/info'}>
           go to main step
         </Link>
       </Button>

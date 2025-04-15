@@ -30,7 +30,7 @@ function Finish() {
           <h2 className='font-semibold capitalize'>{plan.name} {isMonthly ? '(Monthly)' : '(Yearly)'}</h2>
           <p className='font-bold text-lg'>{formatPrice(plan_price / 100)}{isMonthly ? '/mo' : '/ye'}</p>
         </div>
-        <Link href={'/sign-up/step/2'} className='text-indigo-500 border-b border-b-transparent hover:border-b-indigo-500'>Change</Link>
+        <Link href={'/sign-up/step/plan'} className='text-indigo-500 border-b border-b-transparent hover:border-b-indigo-500'>Change</Link>
         
         {add_ons_prices.length > 0 && <div className="my-2 h-px bg-gray-400"></div>}
 
@@ -49,7 +49,7 @@ function Finish() {
       </div>
       <div className="flex items-center mt-auto justify-between">
         <Button variant={'link'} asChild>
-          <Link href={'/sign-up/step/3'}>Go Back</Link>
+          <Link href={'/sign-up/step/adds'}>Go Back</Link>
         </Button>
         <Button asChild variant={'primary'}>
           <Link href={'/sign-up/step/finish'}>Confirm</Link>

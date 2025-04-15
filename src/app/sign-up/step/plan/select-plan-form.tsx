@@ -88,14 +88,14 @@ function SelectPlanForm() {
       </div>
       <div className="flex mt-auto justify-between items-center">
         <Button variant={'ghost'} asChild>
-          <Link href="/sign-up/step/1">Go Back</Link>
+          <Link href="/sign-up/step/info">Go Back</Link>
         </Button>
         <Button onClick={() => {
           //save plan in local storage
           localStorage.setItem('plan_index', JSON.stringify(activePlan.index));
           //save plan type in local storage
           localStorage.setItem('plan_type', JSON.stringify(plan_type));
-          router.push('/sign-up/step/3');
+          router.push('/sign-up/step/adds');
         }}>
           Next Step
         </Button>

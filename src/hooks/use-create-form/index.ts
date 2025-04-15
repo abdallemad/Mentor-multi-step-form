@@ -5,31 +5,35 @@ import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { setInfo } from "@/redux/features/user";
 import { RootState } from "@/redux/store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useCreateForm = () => {
   const dispatch = useDispatch();
   const state = useSelector((s: RootState) => s.user);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  function getInfoFromLocalStorage() {
-    const info = localStorage.getItem("userInfo");
-    if (info) {
-      return JSON.parse(info);
-    }
-    return state.info;
-  }
+
   const form = useForm<FromType>({
     resolver: zodResolver(FormSchema),
-    defaultValues: getInfoFromLocalStorage(),
+    defaultValues: state.info, // safe fallback
   });
+
+  // Load data from localStorage *after* hydration
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const info = localStorage.getItem("userInfo");
+      if (info) {
+        const parsed = JSON.parse(info);
+        form.reset(parsed); // update form values safely
+      }
+    }
+  }, [form]);
 
   function onSubmit(data: FromType) {
     setLoading(true);
     dispatch(setInfo(data));
-    // Save data to local storage
     localStorage.setItem("userInfo", JSON.stringify(data));
-    router.push("/sign-up/step/2");
+    router.push("/sign-up/step/plan");
     setLoading(false);
   }
 

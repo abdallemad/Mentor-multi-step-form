@@ -40,7 +40,7 @@ export function InputForm() {
             ))
           }
         </div>
-        <div className="flex justify-end mt-auto">
+        <div className="flex justify-end md:mt-auto mt-8">
           <Button type="submit" disabled={loading}>Next Step {loading && '...'}</Button>
         </div>
       </form>

@@ -8,7 +8,7 @@ type Props = {
 
 function layout({ children }: Props) {
   return (
-    <div className='md:flex min-h-screen justify-center items-center'>
+    <div className='md:flex min-h-screen relative justify-center items-center'>
       <div className='md:hidden'>
         <MobileSidebar />
       </div>
